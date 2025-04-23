@@ -1626,6 +1626,9 @@ with one of the following `modes`:
         `d` branching from the `b` node - if the value of `c` has changed, but
         `d` remains unchanged, an update for `d` MUST NOT be generated, whereas
         an update for `c` MUST be generated.
+        Note: Deletes are *no longer* optional when the `suppress_redundant`
+        flag is set, as there is no way for the client to tell the difference
+        between an unchanging value and one that has been removed.
   - A `heartbeat_interval` MAY be specified to modify the behavior of
         `suppress_redundant` in a sampled subscription.  In this case, the
         target MUST generate one telemetry update  per heartbeat interval,
